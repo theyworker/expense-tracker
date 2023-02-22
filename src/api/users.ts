@@ -1,9 +1,9 @@
-import { addNewUser, readUser } from "../controllers/user";
+import { addNewUser, putUser, readUser } from "../controllers/user";
 
 export function userEndPoints(app) {
   app.post("/user", addNewUser);
   // TODO:
-  // app.put("/user", addNewUser);
+  app.put("/user", putUser);
   // app.delete("/user", addNewUser);
   app.get("/user", readUser);
 }

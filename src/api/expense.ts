@@ -1,13 +1,13 @@
-import { addNewExpense, getAllExpensesForUser } from "../controllers/expense";
+import {
+  addNewExpense,
+  getAllExpensesForUser,
+  putExpense,
+} from "../controllers/expense";
 
 export function expenseEndPoints(app) {
   app.post("/expense", addNewExpense);
   // TODO:
-  // app.put("/user", addNewUser);
+  app.put("/expense", putExpense);
   // app.delete("/user", addNewUser);
   app.get("/expense", getAllExpensesForUser);
 }
-
-// module.exports = {
-//   userEndPoints,
-// };

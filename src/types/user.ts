@@ -3,6 +3,7 @@ export type User = {
     password: string;
     createdAt: Date | number;
     id: string;
-    currency: "LKR" | "$" | string
+    currency: "LKR" | "$" | string,
+    paymentMethods? : [{name: String, id: String}]
   };
   

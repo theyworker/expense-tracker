@@ -39,3 +39,14 @@ export const addUserToDB = async (newUser: User) => {
     return result;
   }
 };
+
+export const updateUserOnDB = async (id: String, updatedData : Object) => {
+    let result = await executeDB((client) =>
+      getUserCollection(client).updateOne(
+        { id},
+        { $set: { ...updatedData, updatedAt: new Date() } }
+      )
+    );
+    return result;
+  };
+  

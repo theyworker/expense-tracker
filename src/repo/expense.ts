@@ -34,3 +34,13 @@ export const addExpenseToDB = async (newExpense: Expense) => {
     
   };
   
+  export const updateExpenseOnDB = async (id: String, updatedData : Object) => {
+    let result = await executeDB((client) =>
+      getExpenseCollection(client).updateOne(
+        { id},
+        { $set: { ...updatedData, updatedAt: new Date() } }
+      )
+    );
+    return result;
+  };
+  

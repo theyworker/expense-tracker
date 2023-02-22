@@ -1,5 +1,5 @@
 import { uuid } from "uuidv4";
-import { addUser, getUser } from "../services/user";
+import { addUser, editUser, getUser } from "../services/user";
 
 export const addNewUser = async (req, res) => {
   let { name, password, currency = "USD" } = req.body;
@@ -18,4 +18,10 @@ export const readUser = async (req, res) => {
   let searchResult = name || id ? await getUser(name, id) : {};
 
   res.send(searchResult || { message: "no results" });
+};
+
+export const putUser = async (req, res) => {
+  let { id } = req.body;
+  let updatedUser = await editUser(id, { ...req.body });
+  res.send(updatedUser);
 };
